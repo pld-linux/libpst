@@ -7,7 +7,6 @@ License:	GPL
 Group:		Applications/Files
 Source0:	http://dl.sourceforge.net/ol2mbox/%{name}_%{version}.tgz
 # Source0-md5:	aebe0033b3a3fb9afc6ae948d767a684
-#http://dl.sourceforge.net/ol2mbox/kdbx-0.7.1.tar.gz
 URL:		http://sourceforge.net/projects/ol2mbox/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
