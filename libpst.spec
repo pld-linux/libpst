@@ -1,13 +1,13 @@
 Summary:	Tools for conversion of Outlook files to mailbox and other formats
 Summary(pl):	Narzêdzia do konwersji plików Outlooka do formatu mailbox i innych
 Name:		libpst
-Version:	0.5
+Version:	0.5.1
 Release:	1
 License:	GPL
 Group:		Applications/Files
-Source0:	http://dl.sourceforge.net/ol2mbox/%{name}_%{version}.tgz
-# Source0-md5:	aebe0033b3a3fb9afc6ae948d767a684
-URL:		http://sourceforge.net/projects/ol2mbox/
+Source0:	http://alioth.debian.org/download.php/844/%{name}-%{version}.tgz
+# Source0-md5:	0a80562bf7c503f9d3fdd96e0de10408
+URL:		http://alioth.debian.org/projects/libpst/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,7 +22,7 @@ rekurencyjnego lub oddziela ka¿dy list do osobnego pliku. Aktualnie
 obs³uguje listy, foldery i w wiêkszo¶ci kontakty.
 
 %prep
-%setup -q -n %{name}_%{version}
+%setup -q
 
 %build
 %{__make} \
@@ -32,14 +32,14 @@ obs³uguje listy, foldery i w wiêkszo¶ci kontakty.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-install readpst readpstlog $RPM_BUILD_ROOT%{_bindir}
-install debian/readpst.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install lspst readpst readpstlog $RPM_BUILD_ROOT%{_bindir}
+install readpst.1 readpstlog.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS FILE-FORMAT README
+%doc AUTHORS ChangeLog CREDITS FILE-FORMAT TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
