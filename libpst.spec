@@ -1,45 +1,52 @@
-Summary:	Tools for conversion of Outlook files to mailbox and other formats
-Summary(pl):	Narzêdzia do konwersji plików Outlooka do formatu mailbox i innych
+Summary:	Utility for converting Microsoft Outlook mail files
+Summary(pl):	Narzêdzie do konwertowania plików wiadomo¶ci Microsoft Outlooka
 Name:		libpst
 Version:	0.5.1
-Release:	1
+Release:	2
 License:	GPL
-Group:		Applications/Files
-Source0:	http://alioth.debian.org/download.php/844/%{name}-%{version}.tgz
+Group:		Applications
+Source0:	http://alioth.debian.org/download.php/844/%{name}-%{version}.tar.gz
 # Source0-md5:	0a80562bf7c503f9d3fdd96e0de10408
+Patch0:		readpst-install.patch
 URL:		http://alioth.debian.org/projects/libpst/
+Obsoletes:	readpst
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libpst converts Outlook PST files to mailbox and others formats:
-kmail, its own recursive format or separate each email into its own
-file. It currently handles EMails, Folders and mostly Contacts.
+readpst is a utility for converting Microsoft Outlook mail files
+(personal folders) to standard UNIX mbox format.
+
+This is a fork of the libpst project at sourceforge.
 
 %description -l pl
-libpst konwertuje pliki PST z Outlooka do standardowego formatu
-skrzynek (mailbox) lub innych formatów: kmaila, w³asnego formatu
-rekurencyjnego lub oddziela ka¿dy list do osobnego pliku. Aktualnie
-obs³uguje listy, foldery i w wiêkszo¶ci kontakty.
+readpst to narzêdzie do konwertowania plików wiadomo¶ci programu
+Microsoft Outlook (osobistych katalogów) do standardowego formatu Unix
+mbox.
+
+Jest to odga³êzienie projektu libpst na sourceforge.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} \
-	GCC_FLAGS="%{rpmcflags}"
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
-
-install lspst readpst readpstlog $RPM_BUILD_ROOT%{_bindir}
-install readpst.1 readpstlog.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%{__make} install \
+	PREFIX=%{_prefix} \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog CREDITS FILE-FORMAT TODO
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%doc AUTHORS CREDITS ChangeLog FILE-FORMAT TODO
+%attr(755,root,root) %{_bindir}/readpst
+%attr(755,root,root) %{_bindir}/readpstlog
+%{_mandir}/man1/readpst.1*
+%{_mandir}/man1/readpstlog.1*
