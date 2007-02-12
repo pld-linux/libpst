@@ -1,5 +1,5 @@
 Summary:	Utility for converting Microsoft Outlook mail files
-Summary(pl):	Narzêdzie do konwertowania plików wiadomo¶ci Microsoft Outlooka
+Summary(pl.UTF-8):   NarzÄ™dzie do konwertowania plikÃ³w wiadomoÅ›ci Microsoft Outlooka
 Name:		libpst
 Version:	0.5.1
 Release:	2
@@ -18,12 +18,12 @@ readpst is a utility for converting Microsoft Outlook mail files
 
 This is a fork of the libpst project at sourceforge.
 
-%description -l pl
-readpst to narzêdzie do konwertowania plików wiadomo¶ci programu
-Microsoft Outlook (osobistych katalogów) do standardowego formatu Unix
+%description -l pl.UTF-8
+readpst to narzÄ™dzie do konwertowania plikÃ³w wiadomoÅ›ci programu
+Microsoft Outlook (osobistych katalogÃ³w) do standardowego formatu Unix
 mbox.
 
-Jest to odga³êzienie projektu libpst na sourceforge.
+Jest to odgaÅ‚Ä™zienie projektu libpst na sourceforge.
 
 %prep
 %setup -q
