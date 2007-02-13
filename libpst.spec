@@ -1,5 +1,5 @@
 Summary:	Utility for converting Microsoft Outlook mail files
-Summary(pl.UTF-8):   Narzędzie do konwertowania plików wiadomości Microsoft Outlooka
+Summary(pl.UTF-8):	Narzędzie do konwertowania plików wiadomości Microsoft Outlooka
 Name:		libpst
 Version:	0.5.1
 Release:	2
