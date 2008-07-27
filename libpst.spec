@@ -2,7 +2,7 @@ Summary:	Utility for converting Microsoft Outlook mail files
 Summary(pl.UTF-8):	Narzędzie do konwertowania plików wiadomości Microsoft Outlooka
 Name:		libpst
 Version:	0.5.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications
 Source0:	http://alioth.debian.org/download.php/844/%{name}-%{version}.tar.gz
