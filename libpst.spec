@@ -17,6 +17,9 @@ BuildRequires:	boost-python-devel
 BuildRequires:	gd-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
