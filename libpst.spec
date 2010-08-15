@@ -2,7 +2,7 @@ Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
 Version:	0.6.45
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries
 Source0:	http://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
@@ -96,11 +96,12 @@ Wiązania libpst dla Pythona.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{py_sitedir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/*.{a,la}
+install python/.libs/_libpst.so $RPM_BUILD_ROOT%{py_sitedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
