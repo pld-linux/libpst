@@ -22,7 +22,7 @@ BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Library for reading .pst files.
+Library for reading PST (MS Outlook Personal Folders) files.
 
 %description -l pl.UTF-8
 Biblioteka do czytania plików .pst.
