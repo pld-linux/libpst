@@ -1,12 +1,16 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static libraries
+
 Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
-Version:	0.6.47
+Version:	0.6.48
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
-# Source0-md5:	72e49f127ca1fff888d5a262e7a60d4e
+# Source0-md5:	cb121951c21bc1c76b652e0f63c5f150
 Patch0:		%{name}-m4.patch
 URL:		http://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
@@ -87,6 +91,7 @@ Wiązania libpst dla Pythona.
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_static_libs:--disable-static} \
 	--enable-dii \
 	--enable-libpst-shared
 
@@ -99,7 +104,7 @@ install -d $RPM_BUILD_ROOT%{py_sitedir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install python/.libs/_libpst.so $RPM_BUILD_ROOT%{py_sitedir}
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/_libpst.{a,la}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -120,9 +125,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libpst-4
 %{_pkgconfigdir}/libpst.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libpst.a
+%endif
 
 %files tools
 %defattr(644,root,root,755)
