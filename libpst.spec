@@ -114,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/libpst.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libpst.so.4
 
@@ -134,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %files tools
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/lspst
+%attr(755,root,root) %{_bindir}/nick2ldif
 %attr(755,root,root) %{_bindir}/pst2dii
 %attr(755,root,root) %{_bindir}/pst2ldif
 %attr(755,root,root) %{_bindir}/readpst
