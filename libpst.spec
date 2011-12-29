@@ -1,16 +1,16 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static libraries
-
+#
 Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
-Version:	0.6.53
+Version:	0.6.54
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
-# Source0-md5:	e030d3128562ac189c2400dedec36b86
+# Source0-md5:	d8eb0629c9f54bcf40c1f1b029221241
 Patch0:		%{name}-m4.patch
 URL:		http://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
