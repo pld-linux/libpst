@@ -103,7 +103,9 @@ install -d $RPM_BUILD_ROOT%{py_sitedir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{py_sitedir}/_libpst.{a,la}
+%{__rm} $RPM_BUILD_ROOT%{py_sitedir}/_libpst.{a,la}
+# packaged as %doc (split into base and -devel)
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -119,6 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc html/*.html html/devel
 %attr(755,root,root) %{_libdir}/libpst.so
 %{_libdir}/libpst.la
 %{_includedir}/libpst-4
