@@ -5,12 +5,12 @@
 Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
-Version:	0.6.60
-Release:	4
+Version:	0.6.61
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
-# Source0-md5:	d080ce7488d8b91294bd246c511622d6
+# Source0-md5:	f317c8787d4db690a14f2c5e3813c3b1
 URL:		http://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
 BuildRequires:	autoconf >= 2.59
