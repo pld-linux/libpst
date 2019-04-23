@@ -18,17 +18,18 @@ URL:		https://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	boost-python-devel
 BuildRequires:	gd-devel
 BuildRequires:	libgsf-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	pkgconfig
 %if %{with python2}
+BuildRequires:	boost-python-devel
 BuildRequires:	python-devel >= 2
 BuildRequires:	python-modules >= 2
 %endif
 %if %{with python3}
+BuildRequires:	boost-python3-devel
 BuildRequires:	python3-devel >= 1:3.2
 BuildRequires:	python3-modules >= 1:3.2
 %endif
