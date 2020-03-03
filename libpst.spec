@@ -7,14 +7,12 @@
 Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
-Version:	0.6.72
-Release:	4
+Version:	0.6.74
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
-# Source0-md5:	0085c9769a163e7ac59dba6518e0cc1e
-Patch0:		%{name}-link.patch
-Patch1:		python-3.8.patch
+# Source0-md5:	c0fb28dc7d6b9d2af1701027dc7154fe
 URL:		https://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
 BuildRequires:	autoconf >= 2.60
@@ -106,8 +104,6 @@ Wiązania libpst dla Pythona 3.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
