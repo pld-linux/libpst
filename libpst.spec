@@ -13,6 +13,7 @@ License:	GPL v2+
 Group:		Libraries
 Source0:	https://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
 # Source0-md5:	e821b94e8d7790ee314059f751182ebf
+Patch0:		python3.10.patch
 URL:		https://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
 BuildRequires:	autoconf >= 2.60
@@ -104,6 +105,7 @@ Wiązania libpst dla Pythona 3.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
