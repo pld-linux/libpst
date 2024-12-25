@@ -1,0 +1,11 @@
+--- libpst-0.6.76/src/libpst.c~	2021-03-28 01:08:05.000000000 +0100
++++ libpst-0.6.76/src/libpst.c	2024-12-26 00:53:02.826665540 +0100
+@@ -3828,7 +3828,7 @@
+         return -1;
+     }
+     *buf = (char *) pst_malloc(inflated_size);
+-    size_t result_size = inflated_size;
++    uLongf result_size = inflated_size;
+     if (uncompress((Bytef *) *buf, &result_size, (Bytef *) zbuf, size) != Z_OK || result_size != inflated_size) {
+         DEBUG_WARN(("Failed to uncompress %i bytes to %i bytes, got %i\n", size, inflated_size, result_size));
+         if (zbuf) free(zbuf);
