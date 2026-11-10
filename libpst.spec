@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	python2		# CPython 2.x module
+%bcond_with	python2		# CPython 2.x module
 %bcond_without	python3		# CPython 3.x module
 %bcond_without	static_libs	# don't build static libraries
 #
@@ -8,13 +8,14 @@ Summary:	Library for reading .pst files
 Summary(pl.UTF-8):	Biblioteka do czytania plików .pst
 Name:		libpst
 Version:	0.6.76
-Release:	11
+Release:	12
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://www.five-ten-sg.com/libpst/packages/%{name}-%{version}.tar.gz
 # Source0-md5:	e821b94e8d7790ee314059f751182ebf
 Patch0:		python3.10.patch
 Patch1:		zlib-types.patch
+Patch2:		gcc15.patch
 URL:		https://www.five-ten-sg.com/libpst/
 BuildRequires:	ImageMagick
 BuildRequires:	autoconf >= 2.60
@@ -106,8 +107,9 @@ Wiązania libpst dla Pythona 3.
 
 %prep
 %setup -q
-%patch -P 0 -p1
-%patch -P 1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %{__libtoolize}
